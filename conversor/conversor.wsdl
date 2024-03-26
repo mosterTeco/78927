@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://ws.apache.org/axis2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://ws.apache.org/axis2">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.apache.org/axis2">
+            <xs:element name="pesosAEuros">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pesosAEurosResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pesosADolares">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="pesosADolaresResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="eurosAPesos">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="eurosAPesosResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dolaresAPesos">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dolaresAPesosResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="eurosAPesosRequest">
+        <wsdl:part name="parameters" element="ns:eurosAPesos"/>
+    </wsdl:message>
+    <wsdl:message name="eurosAPesosResponse">
+        <wsdl:part name="parameters" element="ns:eurosAPesosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="dolaresAPesosRequest">
+        <wsdl:part name="parameters" element="ns:dolaresAPesos"/>
+    </wsdl:message>
+    <wsdl:message name="dolaresAPesosResponse">
+        <wsdl:part name="parameters" element="ns:dolaresAPesosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pesosAEurosRequest">
+        <wsdl:part name="parameters" element="ns:pesosAEuros"/>
+    </wsdl:message>
+    <wsdl:message name="pesosAEurosResponse">
+        <wsdl:part name="parameters" element="ns:pesosAEurosResponse"/>
+    </wsdl:message>
+    <wsdl:message name="pesosADolaresRequest">
+        <wsdl:part name="parameters" element="ns:pesosADolares"/>
+    </wsdl:message>
+    <wsdl:message name="pesosADolaresResponse">
+        <wsdl:part name="parameters" element="ns:pesosADolaresResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="conversorPortType">
+        <wsdl:operation name="eurosAPesos">
+            <wsdl:input message="ns:eurosAPesosRequest" wsaw:Action="urn:eurosAPesos"/>
+            <wsdl:output message="ns:eurosAPesosResponse" wsaw:Action="urn:eurosAPesosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="dolaresAPesos">
+            <wsdl:input message="ns:dolaresAPesosRequest" wsaw:Action="urn:dolaresAPesos"/>
+            <wsdl:output message="ns:dolaresAPesosResponse" wsaw:Action="urn:dolaresAPesosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="pesosAEuros">
+            <wsdl:input message="ns:pesosAEurosRequest" wsaw:Action="urn:pesosAEuros"/>
+            <wsdl:output message="ns:pesosAEurosResponse" wsaw:Action="urn:pesosAEurosResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="pesosADolares">
+            <wsdl:input message="ns:pesosADolaresRequest" wsaw:Action="urn:pesosADolares"/>
+            <wsdl:output message="ns:pesosADolaresResponse" wsaw:Action="urn:pesosADolaresResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="conversorSoap11Binding" type="ns:conversorPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="eurosAPesos">
+            <soap:operation soapAction="urn:eurosAPesos" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="dolaresAPesos">
+            <soap:operation soapAction="urn:dolaresAPesos" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pesosAEuros">
+            <soap:operation soapAction="urn:pesosAEuros" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pesosADolares">
+            <soap:operation soapAction="urn:pesosADolares" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="conversorSoap12Binding" type="ns:conversorPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="eurosAPesos">
+            <soap12:operation soapAction="urn:eurosAPesos" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="dolaresAPesos">
+            <soap12:operation soapAction="urn:dolaresAPesos" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pesosAEuros">
+            <soap12:operation soapAction="urn:pesosAEuros" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pesosADolares">
+            <soap12:operation soapAction="urn:pesosADolares" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="conversorHttpBinding" type="ns:conversorPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="eurosAPesos">
+            <http:operation location="eurosAPesos"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="dolaresAPesos">
+            <http:operation location="dolaresAPesos"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pesosAEuros">
+            <http:operation location="pesosAEuros"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="pesosADolares">
+            <http:operation location="pesosADolares"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="conversor">
+        <wsdl:port name="conversorHttpSoap11Endpoint" binding="ns:conversorSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/conversor"/>
+        </wsdl:port>
+        <wsdl:port name="conversorHttpSoap12Endpoint" binding="ns:conversorSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/conversor"/>
+        </wsdl:port>
+        <wsdl:port name="conversorHttpEndpoint" binding="ns:conversorHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/conversor"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

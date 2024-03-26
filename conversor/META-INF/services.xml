@@ -1,0 +1,16 @@
+  <service name="conversor">
+    <description>super conversor</description>
+    <parameter name="ServiceClass">conversor</parameter>
+    <operation name="pesosADolares">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="dolaresAPesos">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="pesosAEuros">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+    <operation name="eurosAPesos">
+        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+  </service>

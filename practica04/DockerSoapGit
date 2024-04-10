@@ -1,0 +1,10 @@
+from mcr.microsoft.com/dotnet
+run git clone https://github.com/tareasr/78927
+run mv /78927/practica03 /app
+workdir /app
+expose 5000
+cmd ["dotnet", "run"]
+#paquete SoapCore
+run dotnet add package SoapCore
+run dotnet dev-certs https --clean
+run dotnet dev-certs https -t

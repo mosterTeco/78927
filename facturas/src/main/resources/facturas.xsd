@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="t4is.uv.mx/facturas" 
+xmlns:tns="t4is.uv.mx/facturas" elementFormDefault="qualified">
+      <xs:element name="GenerarFacturaRequest">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="version" type="xs:float" />
+            <xs:element name="serie" type="xs:string" />
+            <xs:element name="folio" type="xs:string" />
+            <xs:element name="fecha" type="xs:string" />
+            <xs:element name="condicionesDePago" type="xs:string" />
+            <xs:element name="subtotal" type="xs:double" />
+            <xs:element name="descuento" type="xs:float" />
+            <xs:element name="moneda" type="xs:string" />
+            <xs:element name="tipoCambio" type="xs:float" />
+            <xs:element name="total" type="xs:double" />
+            <xs:element name="tipoDeComprobante" type="xs:string" />
+            <xs:element name="exportacion" type="xs:string" />
+            <xs:element name="metodoPago" type="xs:string" />
+            <xs:element name="formaPago" type="xs:string" />
+            <xs:element name="lugarExpedicion" type="xs:int"/>
+            <xs:element name="noCertificado" type="xs:int" />
+            <xs:element name="certificado" type="xs:string" />
+            <xs:element name="sello" type="xs:string" />
+            <xs:element name="rfcEmisor" type="xs:string" />
+            <xs:element name="nombreEmisor" type="xs:string" />
+            <xs:element name="regimenFiscal" type="xs:string" />
+            <xs:element name="rfcReceptor" type="xs:string" />
+            <xs:element name="nombreReceptor" type="xs:string" />
+            <xs:element name="domicilioFiscalReceptor" type="xs:string"/>
+            <xs:element name="regimenFiscalReceptor" type="xs:string" />
+            <xs:element name="usoCFDI" type="xs:string" />
+            <xs:element name="claveProdServ" type="xs:string" />
+            <xs:element name="cantidad" type="xs:int" />
+            <xs:element name="claveUnidad" type="xs:string" />
+            <xs:element name="unidad" type="xs:string" />
+            <xs:element name="descripcion" type="xs:string" />
+            <xs:element name="valorUnitario" type="xs:double" />
+            <xs:element name="importe" type="xs:double" />
+            <xs:element name="uuid" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+      <xs:element name="GenerarFacturaResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="uuid" type="xs:string" />
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <xs:element name="HistorialFacturasRequest"/>
+
+   <xs:element name="HistorialFacturasResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="factura" maxOccurs="unbounded">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="version" type="xs:float" />
+                     <xs:element name="serie" type="xs:string" />
+                     <xs:element name="folio" type="xs:string" />
+                     <xs:element name="fecha" type="xs:string" />
+                     <xs:element name="condicionesDePago" type="xs:string" />
+                     <xs:element name="subtotal" type="xs:double" />
+                     <xs:element name="descuento" type="xs:float" />
+                     <xs:element name="moneda" type="xs:string" />
+                     <xs:element name="tipoCambio" type="xs:float" />
+                     <xs:element name="total" type="xs:double" />
+                     <xs:element name="tipoDeComprobante" type="xs:string" />
+                     <xs:element name="exportacion" type="xs:string" />
+                     <xs:element name="metodoPago" type="xs:string" />
+                     <xs:element name="formaPago" type="xs:string" />
+                     <xs:element name="lugarExpedicion" type="xs:int"/>
+                     <xs:element name="noCertificado" type="xs:int" />
+                     <xs:element name="certificado" type="xs:string" />
+                     <xs:element name="sello" type="xs:string" />
+                     <xs:element name="rfcEmisor" type="xs:string" />
+                     <xs:element name="nombreEmisor" type="xs:string" />
+                     <xs:element name="regimenFiscal" type="xs:string" />
+                     <xs:element name="rfcReceptor" type="xs:string" />
+                     <xs:element name="nombreReceptor" type="xs:string" />
+                     <xs:element name="domicilioFiscalReceptor" type="xs:string"/>
+                     <xs:element name="regimenFiscalReceptor" type="xs:string" />
+                     <xs:element name="usoCFDI" type="xs:string" />
+                     <xs:element name="claveProdServ" type="xs:string" />
+                     <xs:element name="cantidad" type="xs:int" />
+                     <xs:element name="claveUnidad" type="xs:string" />
+                     <xs:element name="unidad" type="xs:string" />
+                     <xs:element name="descripcion" type="xs:string" />
+                     <xs:element name="valorUnitario" type="xs:double" />
+                     <xs:element name="importe" type="xs:double" />
+                     <xs:element name="uuid" type="xs:string" />
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema> 

@@ -1,0 +1,333 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="t4is.uv.mx/compras" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="t4is.uv.mx/compras" targetNamespace="t4is.uv.mx/compras">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="t4is.uv.mx/compras">
+<!--  Dependencia  -->
+<xs:element name="RecibirCompraRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="nombre_cliente" type="xs:string"/>
+<xs:element name="email" type="xs:string"/>
+<xs:element name="direccion" type="xs:string"/>
+<xs:element name="rfc" type="xs:string"/>
+<xs:element name="nombre_producto" type="xs:string"/>
+<xs:element name="cantidad_producto" type="xs:int"/>
+<xs:element name="precio_producto" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RecibirCompraResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="folio_seguimiento" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CancelarCompraRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="folio" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CancelarCompraResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="respuesta" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="EstadoCompraRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="folio" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="EstadoCompraResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="respuesta" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!--  Producto  -->
+<xs:element name="RegistroProductoRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="nombre" type="xs:string"/>
+<xs:element name="descripcion" type="xs:string"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="precio" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RegistroProductoResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="registro" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!--  Contabilidad  -->
+<xs:element name="SolicitarPagoRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="folio_compra" type="xs:string"/>
+<xs:element name="nombre" type="xs:string"/>
+<xs:element name="cantidad" type="xs:double"/>
+<xs:element name="precio" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SolicitarPagoResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="pago_status" type="xs:string"/>
+<xs:element name="status" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!--  Presupuesto  -->
+<xs:element name="SolicitarPresupuestoRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="cantidad_necesaria" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SolicitarPresupuestoResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="respuesta" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!--  Factura  -->
+<xs:element name="SolicitarFacturaRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="version" type="xs:float"/>
+<xs:element name="serie" type="xs:string"/>
+<xs:element name="folio" type="xs:string"/>
+<xs:element name="fecha" type="xs:string"/>
+<xs:element name="condicionesDePago" type="xs:string"/>
+<xs:element name="subtotal" type="xs:double"/>
+<xs:element name="descuento" type="xs:float"/>
+<xs:element name="moneda" type="xs:string"/>
+<xs:element name="tipoCambio" type="xs:float"/>
+<xs:element name="total" type="xs:double"/>
+<xs:element name="tipoDeComprobante" type="xs:string"/>
+<xs:element name="exportacion" type="xs:string"/>
+<xs:element name="metodoPago" type="xs:string"/>
+<xs:element name="formaPago" type="xs:string"/>
+<xs:element name="lugarExpedicion" type="xs:int"/>
+<xs:element name="noCertificado" type="xs:int"/>
+<xs:element name="certificado" type="xs:string"/>
+<xs:element name="sello" type="xs:string"/>
+<xs:element name="rfcEmisor" type="xs:string"/>
+<xs:element name="nombreEmisor" type="xs:string"/>
+<xs:element name="regimenFiscal" type="xs:string"/>
+<xs:element name="rfcReceptor" type="xs:string"/>
+<xs:element name="nombreReceptor" type="xs:string"/>
+<xs:element name="domicilioFiscalReceptor" type="xs:string"/>
+<xs:element name="regimenFiscalReceptor" type="xs:string"/>
+<xs:element name="usoCFDI" type="xs:string"/>
+<xs:element name="claveProdServ" type="xs:string"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="claveUnidad" type="xs:string"/>
+<xs:element name="unidad" type="xs:string"/>
+<xs:element name="descripcion" type="xs:string"/>
+<xs:element name="valorUnitario" type="xs:double"/>
+<xs:element name="importe" type="xs:double"/>
+<xs:element name="uuid" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SolicitarFacturaResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="uuid" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<!--  Inventario  -->
+<xs:element name="GenerarFolioRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="orden_compra" type="xs:string"/>
+<xs:element name="uuid" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GenerarFolioResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="folio" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="CancelarCompraRequest">
+<wsdl:part element="tns:CancelarCompraRequest" name="CancelarCompraRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="GenerarFolioRequest">
+<wsdl:part element="tns:GenerarFolioRequest" name="GenerarFolioRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RecibirCompraResponse">
+<wsdl:part element="tns:RecibirCompraResponse" name="RecibirCompraResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EstadoCompraRequest">
+<wsdl:part element="tns:EstadoCompraRequest" name="EstadoCompraRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="CancelarCompraResponse">
+<wsdl:part element="tns:CancelarCompraResponse" name="CancelarCompraResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RegistroProductoResponse">
+<wsdl:part element="tns:RegistroProductoResponse" name="RegistroProductoResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RecibirCompraRequest">
+<wsdl:part element="tns:RecibirCompraRequest" name="RecibirCompraRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="EstadoCompraResponse">
+<wsdl:part element="tns:EstadoCompraResponse" name="EstadoCompraResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="SolicitarFacturaRequest">
+<wsdl:part element="tns:SolicitarFacturaRequest" name="SolicitarFacturaRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="SolicitarPagoRequest">
+<wsdl:part element="tns:SolicitarPagoRequest" name="SolicitarPagoRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RegistroProductoRequest">
+<wsdl:part element="tns:RegistroProductoRequest" name="RegistroProductoRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="GenerarFolioResponse">
+<wsdl:part element="tns:GenerarFolioResponse" name="GenerarFolioResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="SolicitarPagoResponse">
+<wsdl:part element="tns:SolicitarPagoResponse" name="SolicitarPagoResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="SolicitarPresupuestoRequest">
+<wsdl:part element="tns:SolicitarPresupuestoRequest" name="SolicitarPresupuestoRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="SolicitarFacturaResponse">
+<wsdl:part element="tns:SolicitarFacturaResponse" name="SolicitarFacturaResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="SolicitarPresupuestoResponse">
+<wsdl:part element="tns:SolicitarPresupuestoResponse" name="SolicitarPresupuestoResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="comprasPort">
+<wsdl:operation name="CancelarCompra">
+<wsdl:input message="tns:CancelarCompraRequest" name="CancelarCompraRequest"> </wsdl:input>
+<wsdl:output message="tns:CancelarCompraResponse" name="CancelarCompraResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GenerarFolio">
+<wsdl:input message="tns:GenerarFolioRequest" name="GenerarFolioRequest"> </wsdl:input>
+<wsdl:output message="tns:GenerarFolioResponse" name="GenerarFolioResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RecibirCompra">
+<wsdl:input message="tns:RecibirCompraRequest" name="RecibirCompraRequest"> </wsdl:input>
+<wsdl:output message="tns:RecibirCompraResponse" name="RecibirCompraResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EstadoCompra">
+<wsdl:input message="tns:EstadoCompraRequest" name="EstadoCompraRequest"> </wsdl:input>
+<wsdl:output message="tns:EstadoCompraResponse" name="EstadoCompraResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RegistroProducto">
+<wsdl:input message="tns:RegistroProductoRequest" name="RegistroProductoRequest"> </wsdl:input>
+<wsdl:output message="tns:RegistroProductoResponse" name="RegistroProductoResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SolicitarFactura">
+<wsdl:input message="tns:SolicitarFacturaRequest" name="SolicitarFacturaRequest"> </wsdl:input>
+<wsdl:output message="tns:SolicitarFacturaResponse" name="SolicitarFacturaResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SolicitarPago">
+<wsdl:input message="tns:SolicitarPagoRequest" name="SolicitarPagoRequest"> </wsdl:input>
+<wsdl:output message="tns:SolicitarPagoResponse" name="SolicitarPagoResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SolicitarPresupuesto">
+<wsdl:input message="tns:SolicitarPresupuestoRequest" name="SolicitarPresupuestoRequest"> </wsdl:input>
+<wsdl:output message="tns:SolicitarPresupuestoResponse" name="SolicitarPresupuestoResponse"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="comprasPortSoap11" type="tns:comprasPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="CancelarCompra">
+<soap:operation soapAction=""/>
+<wsdl:input name="CancelarCompraRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="CancelarCompraResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="GenerarFolio">
+<soap:operation soapAction=""/>
+<wsdl:input name="GenerarFolioRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GenerarFolioResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RecibirCompra">
+<soap:operation soapAction=""/>
+<wsdl:input name="RecibirCompraRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="RecibirCompraResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EstadoCompra">
+<soap:operation soapAction=""/>
+<wsdl:input name="EstadoCompraRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="EstadoCompraResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="RegistroProducto">
+<soap:operation soapAction=""/>
+<wsdl:input name="RegistroProductoRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="RegistroProductoResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SolicitarFactura">
+<soap:operation soapAction=""/>
+<wsdl:input name="SolicitarFacturaRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SolicitarFacturaResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SolicitarPago">
+<soap:operation soapAction=""/>
+<wsdl:input name="SolicitarPagoRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SolicitarPagoResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SolicitarPresupuesto">
+<soap:operation soapAction=""/>
+<wsdl:input name="SolicitarPresupuestoRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SolicitarPresupuestoResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="comprasPortService">
+<wsdl:port binding="tns:comprasPortSoap11" name="comprasPortSoap11">
+<soap:address location="https://compras-production-300d.up.railway.app/ws/compras.wsdl"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
